@@ -12,7 +12,7 @@ public class Admins {
     }
     public  Admins getAccess(String userName , String password){
         if(logIn(userName, password))
-            return new Admins();
+             singlton.getInstance();
         return null;
     }
 }
