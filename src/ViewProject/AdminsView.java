@@ -12,6 +12,7 @@ public class AdminsView {
     static {
         userName = "Mohammed";
         Password = "Mo1020h$";
+
     }
     private static WarehouseInter business = new BaoFactoryPro().getClassBao();
     public WarehouseInter getBusiness() {
