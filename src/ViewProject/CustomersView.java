@@ -60,12 +60,19 @@ public class CustomersView {
             else
                 System.out.println("please enter valid name(Only characters)");
         }
-
+        while(true) {
             System.out.println("please enter your phone number :");
-            String phoneNumber=in.next();
-            int n=phoneNumber.length();
-            c1.setPhone(phoneNumber);
+            String phoneNumber = in.next();
+            int n = phoneNumber.length();
+            if(onlyDigits(phoneNumber,n)==true){
+                c1.setPhone(phoneNumber);
+                break;
 
+            }
+            else
+                System.out.println("Please enter valid phone number (only digits)");
+
+        }
         c1 = new Customers(c1.getName(), c1.getPhone());
         while (!cv1.getOut){
             business1.viewProducts();
