@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     static boolean getOut = false;
+    //just commenting
 
     public static void main(String args[]){
         Scanner in = new Scanner(System.in);
