@@ -1,13 +1,13 @@
 package DTOProject;
 
-public class Products {
+public class Departments {
     private int id;
     private float price;
     private String name;
     private Number amount;
 
-    public Products(){}
-    public Products(int id , String name , Number amount , float price){
+    public Departments(){}
+    public Departments(int id , String name , Number amount , float price){
         this.id = id;
         this.name = name;
         this.amount = amount;

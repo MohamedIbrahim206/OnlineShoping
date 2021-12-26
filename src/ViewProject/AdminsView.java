@@ -3,7 +3,7 @@ package ViewProject;
 import BAOProject.BaoFactoryPro;
 import BAOProject.WarehouseInter;
 import DTOProject.Admins;
-import DTOProject.Products;
+import DTOProject.Departments;
 import java.util.Scanner;
 
 public class AdminsView {
@@ -59,7 +59,7 @@ public class AdminsView {
 
     static void doAction(Admins a , int i){
         AdminsView av1 = new AdminsView();
-        Products product = new Products();
+        Departments product = new Departments();
         Scanner in = new Scanner(System.in);
         switch (i){
             case 1:

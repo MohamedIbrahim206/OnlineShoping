@@ -2,7 +2,7 @@ package ViewProject;
 
 import BAOProject.*;
 import DTOProject.Customers;
-import DTOProject.Products;
+import DTOProject.Departments;
 import java.util.Scanner;
 
 public class CustomersView {
@@ -44,7 +44,7 @@ public class CustomersView {
         Scanner in = new Scanner(System.in);
         CustomersView cv1 = new CustomersView();
         Customers c1 = new Customers();
-        Products product = new Products();
+        Departments product = new Departments();
         Sales s1 = new Sales();
         Cart myCart = new Cart();
 
@@ -86,6 +86,11 @@ public class CustomersView {
                 System.out.println("the amount you want ?");
                 Number amo = in.nextInt();
                 business.addProduct(business1.getProduct(product.getId()), amo);
+//                int amo = in.nextInt();
+//                if(amo <= (int) product.getAmount())
+//                    business.addProduct(business1.getProduct(product.getId()), amo);
+//                else
+//                    System.out.println("The amount isn't enough");
 
                 System.out.println("the product is added successfully");
                 System.out.println("do you want to add more products ? (Y/N)");

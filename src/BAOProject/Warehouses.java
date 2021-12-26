@@ -4,12 +4,12 @@ import DAOProject.CountableProducts;
 import DAOProject.Sellable;
 import DAOProject.UncountableProducts;
 import DTOProject.Admins;
-import DTOProject.Products;
+import DTOProject.Departments;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Warehouses implements WarehouseInter {
-    private List<Products> products = new ArrayList<>();
+    private List<Departments> products = new ArrayList<>();
     Admins a1=new Admins();
 
     @Override
@@ -17,7 +17,7 @@ public class Warehouses implements WarehouseInter {
         return products.size();
     }
     public void viewProducts(){
-        for(Products products : products)
+        for(Departments products : products)
             System.out.println(products);
     }
     public Sellable getProduct(int id){
@@ -33,14 +33,12 @@ public class Warehouses implements WarehouseInter {
         products.remove(id);
     }
     public void modifyProduct(Admins a , int id , String name , Number amount , float price){
-        Products product = products.get(id);
+        Departments product = products.get(id);
         product.setName(name);
         product.setAmount(amount);
         product.setPrice(price);
     }
     {
         addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Rice",20,9);
-
-
     }
 }
