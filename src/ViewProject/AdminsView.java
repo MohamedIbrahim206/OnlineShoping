@@ -86,6 +86,7 @@ public class AdminsView {
                     amo = in.nextFloat();
                     business.addProduct(a , product.getName(), amo , product.getPrice());
                 }
+                break;
             case 3:
                 System.out.println("please enter product's id :");
                 business.deleteProduct(a , in.nextInt());

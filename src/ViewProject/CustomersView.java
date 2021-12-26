@@ -7,16 +7,12 @@ import java.util.Scanner;
 
 public class CustomersView {
     boolean getOut = false;
-    private static InterCart business = new BaoFactoryPro().getClassCart();
-    public InterCart getBusiness(){
-        return business;
-    }
-    private static WarehouseInter business1 = new BaoFactoryPro().getClassBao();
-    public WarehouseInter getBusiness1() {
-        return business1;
-    }
 
     public static void main(String args[]){
+
+        InterCart business = new BaoFactoryPro().getClassCart();
+        WarehouseInter business1 = new BaoFactoryPro().getClassBao();
+
         Scanner in = new Scanner(System.in);
         CustomersView cv1 = new CustomersView();
         Customers c1 = new Customers();
