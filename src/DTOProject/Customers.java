@@ -8,7 +8,9 @@ public class Customers {
         this.phone = phone;
     }
     public void setName(String name){
-        this.name = name;
+
+        this.name =name;
+
     }
     // try , catch required here
     public void setPhone(String phone){

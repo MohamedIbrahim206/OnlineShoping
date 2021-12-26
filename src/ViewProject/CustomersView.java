@@ -7,6 +7,34 @@ import java.util.Scanner;
 
 public class CustomersView {
     boolean getOut = false;
+    public static boolean onlyAlphabets(String str, int n)
+    {
+        if (str == null || str == "") {
+            return false;
+        }
+        for (int i = 0; i < n; i++) {
+
+            if (!Character.isLetter(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean onlyDigits(String num,int n){
+        if (num == null || num == "") {
+            return false;
+        }
+        for (int i = 0; i < n; i++){
+
+            if(!Character.isDigit(num.charAt(i))&&n!=11){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
 
     public static void main(String args[]){
 
@@ -20,12 +48,25 @@ public class CustomersView {
         Sales s1 = new Sales();
         Cart myCart = new Cart();
 
-        System.out.println("please enter your name :");
-        c1.setName(in.next());
-        System.out.println("please enter your phone number :");
-        c1.setPhone(in.next());
-        c1 = new Customers(c1.getName() , c1.getPhone());
 
+        while(true){
+            System.out.println("please enter your name : ");
+            String name=in.next();
+            int n=name.length();
+            if(onlyAlphabets(name,n)==true){
+                c1.setName(name);
+                break;
+            }
+            else
+                System.out.println("please enter valid name(Only characters)");
+        }
+
+            System.out.println("please enter your phone number :");
+            String phoneNumber=in.next();
+            int n=phoneNumber.length();
+            c1.setPhone(phoneNumber);
+
+        c1 = new Customers(c1.getName(), c1.getPhone());
         while (!cv1.getOut){
             business1.viewProducts();
             System.out.println("which product do you want to put into the cart ? (enter it's id) ");
@@ -52,10 +93,16 @@ public class CustomersView {
             System.out.println("your total is "+business.getTotal());
             System.out.println("are you sure to pay ? (Y/N)");
             // at body of if I think that not valid
-            if(in.next().toLowerCase().equals("y"))
-                s1.makePayment(c1 , myCart);
-            else
+            if(in.next().toLowerCase().equals("y")) {
+                s1.makePayment(c1, myCart);
+                System.out.println("Payment completed successfully , Good luck");
+            }
+
+            else{
                 business.removeCart();
+                System.out.println("Not paid\n");
+
+            }
         }
         cv1.getOut = false;
     }
