@@ -7,10 +7,10 @@ public class Admins {
         password = "Mo1020h$";
     }
     public Admins(){}
-    public static boolean logIn(String userName , String password){
+    public  boolean logIn(String userName , String password){
         return userName.equals(userName) && password.equals(password);
     }
-    public static Admins getAccess(String userName , String password){
+    public  Admins getAccess(String userName , String password){
         if(logIn(userName, password))
             return new Admins();
         return null;

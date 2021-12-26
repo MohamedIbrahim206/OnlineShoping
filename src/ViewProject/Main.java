@@ -9,11 +9,11 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String input;
         while (!getOut){
-            System.out.println("are you the admin ? (Y/N)");
+            System.out.println("are you the admin or customer? ");
             input = in.next().toLowerCase();
-            if (input.equals("y"))
+            if (input.equals("admin"))
                 AdminsView.main(null);
-            else if (input.equals("n"))
+            else if (input.equals("customer"))
                 CustomersView.main(null);
             else
                 getOut = true;

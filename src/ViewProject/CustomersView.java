@@ -33,6 +33,8 @@ public class CustomersView {
 
             try {
                 product.setId(in.nextInt());
+                // check num 5
+
                 System.out.println("the amount you want ?");
                 Number amo = in.nextInt();
                 business.addProduct(business1.getProduct(product.getId()), amo);

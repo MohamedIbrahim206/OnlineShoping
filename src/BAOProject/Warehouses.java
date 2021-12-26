@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Warehouses implements WarehouseInter {
     private List<Products> products = new ArrayList<>();
-
+    Admins a1=new Admins();
     @Override
     public void viewProducts(){
         for(Products products : products)
@@ -35,6 +35,12 @@ public class Warehouses implements WarehouseInter {
         product.setPrice(price);
     }
     {
-        addProduct(Admins.getAccess("Mohammed","Mo1020h$"),"Rice",20,9);
+        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Rice",20,9);
+        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Suger",20,9);
+        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Rice",20,9);
+        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Rice",20,9);
+        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Rice",20,9);
+        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Rice",20,9);
+
     }
 }

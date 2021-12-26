@@ -40,7 +40,7 @@ public class AdminsView {
             else
                 System.out.println("password is incorrect , please try again");
         }
-        Admins manager = Admins.getAccess(Username , password);
+        Admins manager = a1.getAccess(Username , password);
 
         while (!av1.getOut){
             printList();
