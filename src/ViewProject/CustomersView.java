@@ -32,9 +32,12 @@ public class CustomersView {
             }
         }
         return true;
-
     }
 
+    private static WarehouseInter business = new BaoFactoryPro().getClassBao();
+    public WarehouseInter getBusiness() {
+        return business;
+    }
 
     public static void main(String args[]){
 
@@ -67,22 +70,20 @@ public class CustomersView {
             if(onlyDigits(phoneNumber,n)==true){
                 c1.setPhone(phoneNumber);
                 break;
-
             }
             else
                 System.out.println("Please enter valid phone number (only digits)");
-
         }
         c1 = new Customers(c1.getName(), c1.getPhone());
         while (!cv1.getOut){
-            business1.viewProducts();
+            System.out.println("What department do you want to buy from its ");
+            printDepartments();
+            doAction(in.nextInt());
+            //business1.viewProducts();
             System.out.println("which product do you want to put into the cart ? (enter it's id) ");
             System.out.println("or if you want to exit enter any letter else");
-
             try {
                 product.setId(in.nextInt());
-                // check num 5
-
                 System.out.println("the amount you want ?");
                 Number amo = in.nextInt();
                 business.addProduct(business1.getProduct(product.getId()), amo);
@@ -117,5 +118,22 @@ public class CustomersView {
             }
         }
         cv1.getOut = false;
+    }
+
+    static void printDepartments(){
+        System.out.println("1- Meats");
+        System.out.println("2- Legumes");
+        System.out.println("3- Vegetables");
+        System.out.println("4- DiartyProducts");
+        System.out.println("5- to go back ");
+    }
+    static void doAction(int i){
+        CustomersView cv1 = new CustomersView();
+        Departments products = new Departments();
+        Scanner in = new Scanner(System.in);
+        switch (i){
+            case 1:
+
+        }
     }
 }

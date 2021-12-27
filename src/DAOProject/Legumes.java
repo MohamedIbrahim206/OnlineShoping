@@ -2,11 +2,11 @@ package DAOProject;
 
 import DTOProject.Admins;
 import DTOProject.Departments;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Meats extends Departments {
-
+public class Legumes extends Departments {
     private List<Departments> products = new ArrayList<>();
     Admins a1=new Admins();
     public void addProduct(Admins a , String name , Number amount , float price){
@@ -17,9 +17,9 @@ public class Meats extends Departments {
     }
 
     {
-        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Chicken",5,35);
-        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Fish",10,30);
-        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Meats",25,130);
-        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Luncheon",15,40);
+        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Rice",50,9);
+        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Macaroni",40,6.5f);
+        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Sugar",25,8);
+        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Salt",30,2);
     }
 }

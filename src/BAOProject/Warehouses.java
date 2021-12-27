@@ -1,14 +1,12 @@
 package BAOProject;
 
-import DAOProject.CountableProducts;
-import DAOProject.Sellable;
-import DAOProject.UncountableProducts;
+import DAOProject.*;
 import DTOProject.Admins;
 import DTOProject.Departments;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Warehouses implements WarehouseInter {
+public class Warehouses<k> implements WarehouseInter {
     private List<Departments> products = new ArrayList<>();
     Admins a1=new Admins();
 
@@ -16,10 +14,41 @@ public class Warehouses implements WarehouseInter {
     public int getSize(){
         return products.size();
     }
-    public void viewProducts(){
-        for(Departments products : products)
-            System.out.println(products);
+    public void viewProducts() {
+        if (products instanceof Departments) {
+            for (Departments products : products)
+                System.out.println(products);
+        }
     }
+    public void ViewMeats() {
+        List<Meats> elements = new ArrayList<>();
+        if (elements instanceof Meats) {
+            for (Meats element : elements)
+                System.out.println(element);
+        }
+    }
+    public void ViewLegumes() {
+        List<Legumes> elements = new ArrayList<>();
+        if (elements instanceof Legumes) {
+            for (Legumes element : elements)
+                System.out.println(element);
+        }
+    }
+    public void ViewVegetables() {
+        List<Vegetables> elements = new ArrayList<>();
+        if (elements instanceof Vegetables) {
+            for (Vegetables element : elements)
+                System.out.println(element);
+        }
+    }
+    public void ViewDiarty() {
+        List<DiartyProducts> elements = new ArrayList<>();
+        if (elements instanceof DiartyProducts) {
+            for (DiartyProducts element : elements)
+                System.out.println(element);
+        }
+    }
+
     public Sellable getProduct(int id){
         return (Sellable) products.get(id);
     }
@@ -37,8 +66,5 @@ public class Warehouses implements WarehouseInter {
         product.setName(name);
         product.setAmount(amount);
         product.setPrice(price);
-    }
-    {
-        addProduct(a1.getAccess("Mohammed","Mo1020h$"),"Rice",20,9);
     }
 }
