@@ -6,6 +6,8 @@ import DTOProject.Departments;
 import java.util.ArrayList;
 import java.util.List;
 
+enum DepartmentsName {Meats , Legumes , DiartyProducts , Vegetables}
+
 public class Warehouses<k> implements WarehouseInter {
     private List<Departments> products = new ArrayList<>();
     Admins a1=new Admins();
