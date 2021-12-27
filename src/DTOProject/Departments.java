@@ -40,8 +40,4 @@ public class Departments {
         return amount;
     }
 
-    @Override
-    public String toString() {
-        return "id=" + id + ", name= " + name + ", price= " + price + ", amount= " + amount;
-    }
 }

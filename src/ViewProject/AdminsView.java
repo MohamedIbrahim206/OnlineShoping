@@ -8,12 +8,19 @@ import java.util.Scanner;
 
 public class AdminsView {
     boolean getOut = false;
-    private static final String userName, Password;
-    static {
-        userName = "Mohammed";
-        Password = "Mo1020h$";
 
+    // it's very wrong
+    private static final String userName1, Password1;
+    static {
+        userName1 = "Mohammed";
+        Password1 = "Mo1020h$";
     }
+    private static final String userName2, Password2;
+    static {
+        userName2 = "Mostafa";
+        Password2 = "Mo3040h$";
+    }
+
     private static WarehouseInter business = new BaoFactoryPro().getClassBao();
     public WarehouseInter getBusiness() {
         return business;
@@ -28,7 +35,7 @@ public class AdminsView {
         while (true){
             System.out.println("Please Enter your username : ");
             Username = input.next();
-            if(Username.equals(userName))
+            if(Username.equals(userName1) || Username.equals(userName2))
                 break;
             else
                 System.out.println("username is incorrect , please try again");
@@ -36,7 +43,7 @@ public class AdminsView {
         while (true){
             System.out.println("please Enter your password : ");
             password = input.next();
-            if(password.equals(Password))
+            if(password.equals(Password1) || password.equals(Password2))
                 break;
             else
                 System.out.println("password is incorrect , please try again");
@@ -51,7 +58,7 @@ public class AdminsView {
     }
 
     static void printList(){
-        System.out.println("1- view products");
+        System.out.println("1- view departments");
         System.out.println("2- add product");
         System.out.println("3- delete product");
         System.out.println("4- modify product");
@@ -64,7 +71,7 @@ public class AdminsView {
         Scanner in = new Scanner(System.in);
         switch (i){
             case 1:
-                business.viewProducts();
+                business.viewDepartments();
                 break;
 
             case 2:

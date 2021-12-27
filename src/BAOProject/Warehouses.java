@@ -14,26 +14,31 @@ public class Warehouses<k> implements WarehouseInter {
     public int getSize(){
         return products.size();
     }
-    public void viewProducts() {
+
+    public void viewDepartments(){
+        List<Meats> elementMeat = new ArrayList<>();
+        if (elementMeat instanceof Meats) {
+            for (Meats element : elementMeat)
+                System.out.println(elementMeat);
+        }
+        List<Legumes> elementLeg = new ArrayList<>();
+        if (elementLeg instanceof Legumes) {
+            for (Legumes element : elementLeg)
+                System.out.println(elementLeg);
+        }
+        List<Vegetables> elementVeg = new ArrayList<>();
+        if (elementVeg instanceof Vegetables) {
+            for (Vegetables element : elementVeg)
+                System.out.println(element);
+        }
+    }
+    public void viewProducts(){
         if (products instanceof Departments) {
             for (Departments products : products)
                 System.out.println(products);
         }
     }
-    public void ViewMeats() {
-        List<Meats> elements = new ArrayList<>();
-        if (elements instanceof Meats) {
-            for (Meats element : elements)
-                System.out.println(element);
-        }
-    }
-    public void ViewLegumes() {
-        List<Legumes> elements = new ArrayList<>();
-        if (elements instanceof Legumes) {
-            for (Legumes element : elements)
-                System.out.println(element);
-        }
-    }
+
     public void ViewVegetables() {
         List<Vegetables> elements = new ArrayList<>();
         if (elements instanceof Vegetables) {
