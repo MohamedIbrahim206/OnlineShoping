@@ -7,7 +7,7 @@ import DTOProject.Departments;
 import java.util.Scanner;
 
 public class AdminsView {
-    boolean getOut = false;
+   static boolean getOut = false;
 
     // it's very wrong
     private static final String userName1, Password1;
@@ -71,7 +71,7 @@ public class AdminsView {
         Scanner in = new Scanner(System.in);
         switch (i){
             case 1:
-                business.viewDepartments();
+                printDeparts();
                 break;
 
             case 2:
@@ -125,5 +125,17 @@ public class AdminsView {
                 av1.getOut = true;
                 break;
         }
+    }
+    static void printDeparts(){
+        AdminsView av1 = new AdminsView();
+        Departments product = new Departments();
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("1- Vegetables");
+        System.out.println("2- Meats");
+        System.out.println("3- Legumes");
+        System.out.println("4- DiartyProducts");
+
+
     }
 }

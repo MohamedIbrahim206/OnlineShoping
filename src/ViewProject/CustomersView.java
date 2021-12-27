@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class CustomersView {
     boolean getOut = false;
+    static boolean pass = false;
     public static boolean onlyAlphabets(String str, int n)
     {
         if (str == null || str == "") {
@@ -82,26 +83,35 @@ public class CustomersView {
             //business1.viewProducts();
             System.out.println("which product do you want to put into the cart ? (enter it's id) ");
             System.out.println("or if you want to exit enter any letter else");
-            try {
-                product.setId(in.nextInt());
-                System.out.println("the amount you want ?");
-                Number amo = in.nextInt();
-                business.addProduct(business1.getProduct(product.getId()), amo);
+            do {
+                try {
+                    product.setId(in.nextInt());
+                    pass = false;
+                }catch (Exception e){
+                    System.out.println("please enter valid amount");
+                    pass = true;
+                }
+            }while (pass);
+
+            
+                    System.out.println("the amount you want ?");
+                    Number amo = in.nextInt();
+                    business.addProduct(business1.getProduct(product.getId()), amo);
 //                int amo = in.nextInt();
 //                if(amo <= (int) product.getAmount())
 //                    business.addProduct(business1.getProduct(product.getId()), amo);
 //                else
 //                    System.out.println("The amount isn't enough");
 
-                System.out.println("the product is added successfully");
-                System.out.println("do you want to add more products ? (Y/N)");
-                if(in.next().toLowerCase().equals("y"))
-                    continue;
-                else
-                    cv1.getOut = true;
-            }catch (Exception e){
-                break;
-            }
+                    System.out.println("the product is added successfully");
+                    System.out.println("do you want to add more products ? (Y/N)");
+                    if(in.next().toLowerCase().equals("y"))
+                        continue;
+                    else
+                        cv1.getOut = true;
+
+
+
 
             System.out.println("your total is "+business.getTotal());
             System.out.println("are you sure to pay ? (Y/N)");
@@ -119,6 +129,7 @@ public class CustomersView {
         }
         cv1.getOut = false;
     }
+
 
     static void printDepartments(){
         System.out.println("1- Meats");
