@@ -76,25 +76,25 @@ public class AdminsView {
 
             case 2:
                 System.out.println("please enter the department's name");
-                String result = in.next();
+                String call = in.next();
                 System.out.println("please enter the product's name :");
                 product.setName(in.next());
                 System.out.println("please enter the product's price per amount :");
                 product.setPrice(in.nextFloat());
                 System.out.println("please enter the product's amount :");
                 System.out.println("is it countable? (Y/N)");
-                result = in.next();
+                String result = in.next();
                 int am;
                 float amo;
                 if(result.toLowerCase().equals("y")){
                     System.out.println("please enter how many ?");
                     am = in.nextInt();
-                    business.addProduct(a , product.getName() , am , product.getPrice() , result);
+                    business.addProduct(a , product.getName() , am , product.getPrice() , call);
                 }
                 else {
                     System.out.println("please enter how much ?");
                     amo = in.nextFloat();
-                    business.addProduct(a , product.getName(), amo , product.getPrice() , result);
+                    business.addProduct(a , product.getName(), amo , product.getPrice() , call);
                 }
                 break;
             case 3:
