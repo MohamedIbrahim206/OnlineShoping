@@ -4,11 +4,14 @@ import DAOProject.*;
 import DTOProject.Admins;
 import DTOProject.Departments;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-enum DepartmentsName {Meats , Legumes , DiartyProducts , Vegetables}
+enum DepartmentsEnum {Meats , Legumes , DiartyProducts , Vegetables}
 
-public class Warehouses<k> implements WarehouseInter {
+public class Warehouses implements WarehouseInter {
+    private HashMap<DepartmentsEnum , ArrayList> map = new HashMap<>();
     private List<Departments> products = new ArrayList<>();
     Admins a1=new Admins();
 
@@ -17,23 +20,23 @@ public class Warehouses<k> implements WarehouseInter {
         return products.size();
     }
 
-    public void viewDepartments(){
-        List<Meats> elementMeat = new ArrayList<>();
-        if (elementMeat instanceof Meats) {
-            for (Meats element : elementMeat)
-                System.out.println(elementMeat);
-        }
-        List<Legumes> elementLeg = new ArrayList<>();
-        if (elementLeg instanceof Legumes) {
-            for (Legumes element : elementLeg)
-                System.out.println(elementLeg);
-        }
-        List<Vegetables> elementVeg = new ArrayList<>();
-        if (elementVeg instanceof Vegetables) {
-            for (Vegetables element : elementVeg)
-                System.out.println(element);
-        }
-    }
+//    public void viewDepartments(){
+//        List<Meats> elementMeat = new ArrayList<>();
+//        if (elementMeat instanceof Meats) {
+//            for (Meats element : elementMeat)
+//                System.out.println(elementMeat);
+//        }
+//        List<Legumes> elementLeg = new ArrayList<>();
+//        if (elementLeg instanceof Legumes) {
+//            for (Legumes element : elementLeg)
+//                System.out.println(elementLeg);
+//        }
+//        List<Vegetables> elementVeg = new ArrayList<>();
+//        if (elementVeg instanceof Vegetables) {
+//            for (Vegetables element : elementVeg)
+//                System.out.println(element);
+//        }
+//    }
     public void viewProducts(){
         if (products instanceof Departments) {
             for (Departments products : products)
@@ -59,6 +62,7 @@ public class Warehouses<k> implements WarehouseInter {
     public Sellable getProduct(int id){
         return (Sellable) products.get(id);
     }
+    // add type of departments
     public void addProduct(Admins a , String name , Number amount , float price){
         if(amount instanceof Integer)
             products.add(new CountableProducts(products.size(), name , amount , price));

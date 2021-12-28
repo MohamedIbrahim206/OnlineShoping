@@ -68,12 +68,12 @@ public class CustomersView {
             System.out.println("please enter your phone number :");
             String phoneNumber = in.next();
             int n = phoneNumber.length();
-            if(onlyDigits(phoneNumber,n)==true){
+            if(onlyDigits(phoneNumber,n)==true && n == 11){
                 c1.setPhone(phoneNumber);
                 break;
             }
             else
-                System.out.println("Please enter valid phone number (only digits)");
+                System.out.println("Please enter valid phone number");
         }
         c1 = new Customers(c1.getName(), c1.getPhone());
         while (!cv1.getOut){

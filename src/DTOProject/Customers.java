@@ -8,16 +8,10 @@ public class Customers {
         this.phone = phone;
     }
     public void setName(String name){
-
         this.name =name;
-
     }
-    // try , catch required here
     public void setPhone(String phone){
-        if(phone.length() == 11)
-            this.phone = phone;
-        else
-            System.out.println("Invalid Phone");
+        this.name = name;
     }
     public String getName(){
         return name;
