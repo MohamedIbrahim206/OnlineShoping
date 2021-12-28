@@ -77,9 +77,10 @@ public class CustomersView {
         }
         c1 = new Customers(c1.getName(), c1.getPhone());
         while (!cv1.getOut){
-            System.out.println("What department do you want to buy from its ");
-            printDepartments();
-            doAction(in.nextInt());
+            business1.viewProducts();
+//            System.out.println("What department do you want to buy from its ");
+//            printDepartments();
+//            doAction(in.nextInt());
             //business1.viewProducts();
             System.out.println("which product do you want to put into the cart ? (enter it's id) ");
             System.out.println("or if you want to exit enter any letter else");
@@ -88,30 +89,28 @@ public class CustomersView {
                     product.setId(in.nextInt());
                     pass = false;
                 }catch (Exception e){
-                    System.out.println("please enter valid amount");
+                    System.out.println("please enter valid id");
                     pass = true;
                 }
             }while (pass);
-
-            
-                    System.out.println("the amount you want ?");
+            System.out.println("the amount you want ?");
+            do {
+                try {
                     Number amo = in.nextInt();
                     business.addProduct(business1.getProduct(product.getId()), amo);
-//                int amo = in.nextInt();
-//                if(amo <= (int) product.getAmount())
-//                    business.addProduct(business1.getProduct(product.getId()), amo);
-//                else
-//                    System.out.println("The amount isn't enough");
+                    pass = false;
+                }
+                catch (Exception e){
+                    System.out.println("Sorry the amount not enough, please enter less amount");
+                }
+            }while (pass);
 
-                    System.out.println("the product is added successfully");
-                    System.out.println("do you want to add more products ? (Y/N)");
-                    if(in.next().toLowerCase().equals("y"))
-                        continue;
-                    else
-                        cv1.getOut = true;
-
-
-
+            System.out.println("the product is added successfully");
+            System.out.println("do you want to add more products ? (Y/N)");
+            if (in.next().toLowerCase().equals("y"))
+                continue;
+            else
+                cv1.getOut = true;
 
             System.out.println("your total is "+business.getTotal());
             System.out.println("are you sure to pay ? (Y/N)");
@@ -124,12 +123,10 @@ public class CustomersView {
             else{
                 business.removeCart();
                 System.out.println("Not paid\n");
-
             }
         }
         cv1.getOut = false;
     }
-
 
     static void printDepartments(){
         System.out.println("1- Meats");

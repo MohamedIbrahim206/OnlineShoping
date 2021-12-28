@@ -75,24 +75,26 @@ public class AdminsView {
                 break;
 
             case 2:
+                System.out.println("please enter the department's name");
+                String result = in.next();
                 System.out.println("please enter the product's name :");
                 product.setName(in.next());
                 System.out.println("please enter the product's price per amount :");
                 product.setPrice(in.nextFloat());
                 System.out.println("please enter the product's amount :");
                 System.out.println("is it countable? (Y/N)");
-                String result = in.next();
+                result = in.next();
                 int am;
                 float amo;
                 if(result.toLowerCase().equals("y")){
                     System.out.println("please enter how many ?");
                     am = in.nextInt();
-                    business.addProduct(a , product.getName() , am , product.getPrice());
+                    business.addProduct(a , product.getName() , am , product.getPrice() , result);
                 }
                 else {
                     System.out.println("please enter how much ?");
                     amo = in.nextFloat();
-                    business.addProduct(a , product.getName(), amo , product.getPrice());
+                    business.addProduct(a , product.getName(), amo , product.getPrice() , result);
                 }
                 break;
             case 3:
@@ -128,14 +130,14 @@ public class AdminsView {
     }
     static void printDeparts(){
         AdminsView av1 = new AdminsView();
-        Departments product = new Departments();
         Scanner in = new Scanner(System.in);
 
-        System.out.println("1- Vegetables");
-        System.out.println("2- Meats");
-        System.out.println("3- Legumes");
-        System.out.println("4- DiartyProducts");
-
-
+        System.out.println("What's the department you want ?");
+        // Convert enum to set and apply forEach()
+//        for (seasons s : seasons.values()) {
+//            System.out.println(s);
+//        }
+        int res = in.nextInt();
+        business.viewProducts();
     }
 }

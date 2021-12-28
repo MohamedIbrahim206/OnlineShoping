@@ -8,10 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-enum DepartmentsEnum {Meats , Legumes , DiartyProducts , Vegetables}
+enum departmentsEnum {Meats , Legumes , DiartyProducts , Vegetables}
 
 public class Warehouses implements WarehouseInter {
-    private HashMap<DepartmentsEnum , ArrayList> map = new HashMap<>();
+    private HashMap<departmentsEnum , ArrayList> map = new HashMap<>();
     private List<Departments> products = new ArrayList<>();
     Admins a1=new Admins();
 
@@ -63,11 +63,12 @@ public class Warehouses implements WarehouseInter {
         return (Sellable) products.get(id);
     }
     // add type of departments
-    public void addProduct(Admins a , String name , Number amount , float price){
+    public void addProduct(Admins a , String name , Number amount , float price , departmentsEnum departments){
         if(amount instanceof Integer)
-            products.add(new CountableProducts(products.size(), name , amount , price));
+            map.get(departments).add(new CountableProducts(products.size(), name , amount , price));
         else
-            products.add(new UncountableProducts(products.size(), name , amount , price));
+            map.get(departments).add(new UncountableProducts(products.size(), name , amount , price));
+
     }
     public void deleteProduct(Admins a , int id){
         products.remove(id);
