@@ -28,7 +28,7 @@ public class Warehouses implements WarehouseInter {
     public void viewDepartments(){
         int i = 0;
         for (departmentsEnum d : departmentsEnum.values())
-            System.out.println(i+"- "+d);
+            System.out.println((i++)+"- "+d);
     }
     public Sellable getProduct(int id , departmentsEnum d){
         for (Departments product : map.get(d))
