@@ -1,6 +1,6 @@
 package BAOProject;
 
- enum departmentsEnum {
+ public enum departmentsEnum {
         Meats(0) , Legumes(1) , DiartyProducts(2) , Vegetables(3);
 
         private int departValue;

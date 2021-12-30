@@ -48,12 +48,10 @@ public class Warehouses implements WarehouseInter {
             map.get(department).add(temp);
             temp.setId(numOfProducts);
         }
-
         numOfProducts++;
     }
     public void deleteProduct(Admins a , Departments product , departmentsEnum d){
         map.get(d).remove(product);
-
     }
     public void modifyProduct(Admins a , Departments product  , String name , Number amount , float price ){
         product.setName(name);

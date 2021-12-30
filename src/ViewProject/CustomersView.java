@@ -77,7 +77,7 @@ public class CustomersView {
         }
         c1 = new Customers(c1.getName(), c1.getPhone());
         while (!cv1.getOut){
-            business1.viewProducts();
+            //business1.viewProducts();
 //            System.out.println("What department do you want to buy from its ");
 //            printDepartments();
 //            doAction(in.nextInt());
@@ -97,7 +97,7 @@ public class CustomersView {
             do {
                 try {
                     Number amo = in.nextInt();
-                    business.addProduct(business1.getProduct(product.getId()), amo);
+                    //business.addProduct(business1.getProduct(product.getId()), amo);
                     pass = false;
                 }
                 catch (Exception e){
