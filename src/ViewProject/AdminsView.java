@@ -37,6 +37,8 @@ public class AdminsView {
         Scanner input = new Scanner(System.in);
         String Username, password;
 
+        printProducts();
+
         while (true) {
             System.out.println("Please Enter your username : ");
             Username = input.next();
@@ -119,11 +121,11 @@ public class AdminsView {
                     System.out.println("please enter how many ?");
                     am = in.nextInt();
                     // I want to add in department that user inter it.
-                    //business.addProduct(a , product.getName() , am , product.getPrice() , );
+                    business.addProduct(a , product.getName() , am , product.getPrice() , business.getDepartment(any));
                 } else {
                     System.out.println("please enter how much ?");
                     amo = in.nextFloat();
-                    //business.addProduct(a , product.getName(), amo , product.getPrice() , );
+                    business.addProduct(a , product.getName(), amo , product.getPrice() , business.getDepartment(any));
                 }
                 break;
             case 3:

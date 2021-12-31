@@ -12,4 +12,5 @@ public interface WarehouseInter {
     public void modifyProduct(Admins a , product product  , String name , Number amount , float price);
     public int getSize();
     public void viewDepartments();
+    public departmentsEnum getDepartment(int i);
 }

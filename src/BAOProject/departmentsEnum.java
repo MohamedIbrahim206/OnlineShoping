@@ -1,7 +1,7 @@
 package BAOProject;
 
     public enum departmentsEnum {
-        Meats(0) , Legumes(1) , DiartyProducts(2) , Vegetables(3);
+        Meats(1) , Legumes(2) , DiartyProducts(3) , Vegetables(4);
 
         private int departValue;
         departmentsEnum(int i) {
@@ -12,14 +12,5 @@ package BAOProject;
             return departValue;
         }
 
-        public departmentsEnum getDepartment(int i){
 
-            return switch (i) {
-                case 0 -> departmentsEnum.Meats;
-                case 1 -> departmentsEnum.Legumes;
-                case 2 -> departmentsEnum.DiartyProducts;
-                case 3 -> departmentsEnum.Vegetables;
-                default -> null;
-            };
-        }
 }

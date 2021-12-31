@@ -40,4 +40,8 @@ public class product {
         return amount;
     }
 
+    public String toString(){
+        return "id:"+id+"   name:"+name +"  amount:"+amount+"  price"+price;
+    }
+
 }

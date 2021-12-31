@@ -10,8 +10,13 @@ import java.util.List;
 public class Warehouses implements WarehouseInter {
     private static int numOfProducts ;
 
-    private HashMap<departmentsEnum , ArrayList<product>> map = new HashMap<>();
-    private List<product> products = new ArrayList<>();
+    private static HashMap<departmentsEnum , ArrayList<product>> map = new HashMap<>();
+
+    static {
+        for (departmentsEnum p : departmentsEnum.values())
+            map.put(p , new ArrayList<>());
+    }
+
     Admins a1=new Admins();
 
     @Override
@@ -20,12 +25,24 @@ public class Warehouses implements WarehouseInter {
     }
 
     public void viewProducts (departmentsEnum d){
+
         for (DTOProject.product product : map.get(d))
             System.out.println(product);
     }
 
+    public departmentsEnum getDepartment(int i){
+
+        return switch (i) {
+            case 1 -> departmentsEnum.Meats;
+            case 2 -> departmentsEnum.Legumes;
+            case 3 -> departmentsEnum.DiartyProducts;
+            case 4 -> departmentsEnum.Vegetables;
+            default -> null;
+        };
+
+    }
     public void viewDepartments(){
-        int i = 0;
+        int i = 1;
         for (departmentsEnum d : departmentsEnum.values())
             System.out.println((i++)+"- "+d);
     }
@@ -36,17 +53,15 @@ public class Warehouses implements WarehouseInter {
         return null;
     }
     public void addProduct(Admins a , String name , Number amount , float price , departmentsEnum department){
-        product temp;
-        if(amount instanceof Integer) {
-            temp = new CountableProducts(products.size(), name, amount, price);
-            map.get(department).add(temp);
-            temp.setId(numOfProducts);
-        }
-        else {
-            temp = new UncountableProducts(products.size(), name, amount, price);
-            map.get(department).add(temp);
-            temp.setId(numOfProducts);
-        }
+
+
+        if(amount instanceof Integer)
+            map.get(department).add(new CountableProducts(numOfProducts, name, amount, price));
+
+        else
+            map.get(department).add(new UncountableProducts(numOfProducts, name, amount, price));
+
+
         numOfProducts++;
     }
     public void deleteProduct(Admins a , product product , departmentsEnum d){
