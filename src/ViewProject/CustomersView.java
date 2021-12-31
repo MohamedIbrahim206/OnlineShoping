@@ -36,14 +36,12 @@ public class CustomersView {
     }
 
     private static WarehouseInter business = new BaoFactoryPro().getClassBao();
-    public WarehouseInter getBusiness() {
-        return business;
-    }
+
 
     public static void main(String args[]){
 
         InterCart obj = new BaoFactoryPro().getClassCart();
-        WarehouseInter business = new BaoFactoryPro().getClassBao();
+
 
         Scanner in = new Scanner(System.in);
         CustomersView cv1 = new CustomersView();
@@ -79,30 +77,32 @@ public class CustomersView {
         while (!cv1.getOut){
             business.viewDepartments();
             System.out.println("What department do you want to buy from it? (please enter number) ");
-            business.viewProducts(business.getDepartment(in.nextInt()));
+            departmentsEnum d = business.getDepartment(in.nextInt());
+            business.viewProducts(d);
             System.out.println("which product do you want to put into the cart ? (enter it's id) ");
-            System.out.println("or if you want to exit enter any letter else");
+//            System.out.println("or if you want to exit enter any letter else");
             int any = in.nextInt();
-            do {
-                try {
-                    product.setId(any);
-                    pass = false;
-                }catch (Exception e){
-                    System.out.println("please enter valid id");
-                    pass = true;
-                }
-            }while (pass);
+//            do {
+//                try {
+//                    product.setId(any);
+//                    pass = false;
+//                }catch (Exception e){
+//                    System.out.println("please enter valid id");
+//                    pass = true;
+//                }
+//            }while (pass);
             System.out.println("the amount you want ?");
-            do {
-                try {
+//            do {
+//                try {
                     Number amo = in.nextInt();
-                    obj.addProduct(business.getProduct(product.getId() , business.getDepartment(any)), amo);
+                    obj.addProduct(business.getProduct(any , d), amo);
                     pass = false;
-                }
-                catch (Exception e){
-                    System.out.println("Sorry the amount not enough, please enter less amount");
-                }
-            }while (pass);
+//                }
+//                catch (Exception e){
+//                    System.out.println("Sorry the amount not enough, please enter less amount");
+////                    pass = true;
+////                }
+////            }while (pass);
 
             System.out.println("the product is added successfully");
             System.out.println("do you want to add more products ? (Y/N)");
@@ -115,7 +115,7 @@ public class CustomersView {
             System.out.println("are you sure to pay ? (Y/N)");
             // at body of if I think that not valid
             if(in.next().toLowerCase().equals("y")) {
-                s1.makePayment(c1, myCart);
+                s1.makePayment(c1, (Cart) obj);
                 System.out.println("Payment completed successfully , Good luck");
             }
             else{

@@ -1,21 +1,23 @@
 package BAOProject;
 
-import DAOProject.Sellable;
+import DAOProject.*;
+import DTOProject.Product;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Cart implements InterCart{
     private float total;
-    private Map<Sellable, Number> cart = new HashMap<>();
+    private Map<Product, Number> cart = new HashMap<>();
 
     @Override
-    public void addProduct(Sellable product , Number amount){
+    public void addProduct(Product product , Number amount){
         cart.put(product , amount);
-        total += (product.getCost() * (int)amount);
+        total += (product.getPrice() * (int)amount);
     }
-    public void removeProduct(Sellable product){
+    public void removeProduct(Product product){
         cart.remove(product);
-        total -= product.getCost();
+        total -= product.getPrice();
     }
     public int getNumberOfProducts(){
         return cart.size();
@@ -23,7 +25,7 @@ public class Cart implements InterCart{
     public float getTotal(){
         return total;
     }
-    public Map<Sellable , Number> getCart(){
+    public Map<Product , Number> getCart(){
         return cart;
     }
     public void removeCart(){

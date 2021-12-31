@@ -37,7 +37,7 @@ public class AdminsView {
         Scanner input = new Scanner(System.in);
         String Username, password;
 
-        printProducts();
+//        printProducts();
 
         while (true) {
             System.out.println("Please Enter your username : ");
@@ -110,17 +110,21 @@ public class AdminsView {
             case 3:
                 business.viewDepartments();
                 System.out.println("please enter departments' number that you want delete from it ");
-                business.viewProducts(business.getDepartment(in.nextInt()));
+                departmentsEnum d = business.getDepartment(in.nextInt());
+                business.viewProducts(d);
                 System.out.println("please enter the number you want delete it ");
-                //business.deleteProduct(a , business.getProduct(in.nextInt(), business.getDepartment(in.nextInt())) ,business.getDepartment(in.nextInt()) );
+                business.deleteProduct(a , in.nextInt() ,d );
                 break;
 
             case 4:
                 business.viewDepartments();
                 System.out.println("please enter departments' number that you want modify from it ");
-                business.viewProducts(business.getDepartment(in.nextInt()));
+                d = business.getDepartment(in.nextInt());
+                business.viewProducts(d);
                 System.out.println("please enter product's id that you want modify :");
-                product.setId(in.nextInt());
+                int id = in.nextInt();
+                product = business.getProduct(id , d);
+//                product.setId(in.nextInt());
                 System.out.println("please enter the new name :");
                 product.setName(in.next());
                 System.out.println("please enter the new price :");
@@ -130,11 +134,11 @@ public class AdminsView {
                 if (res.toLowerCase().equals("y")) {
                     System.out.println("please enter how many ?");
                     am = in.nextInt();
-                    //business.modifyProduct(a, business.getProduct(product.getId(), business.getDepartment(product.getId())) , product.getName(), am , product.getPrice());
+                    business.modifyProduct(a, id, product.getName(), am , product.getPrice(),d);
                 } else {
                     System.out.println("please enter how much ?");
                     amo = in.nextFloat();
-                    //business.modifyProduct(a, business.getProduct(product.getId(), business.getDepartment(product.getId())) , product.getName(), amo , product.getPrice());
+                    business.modifyProduct(a, id, product.getName(), amo , product.getPrice(),d);
                 }
                 break;
 
