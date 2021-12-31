@@ -1,8 +1,8 @@
 package DAOProject;
 
-import DTOProject.product;
+import DTOProject.Product;
 
-public class CountableProducts extends product implements Sellable{
+public class CountableProducts extends Product implements Sellable{
 
     public CountableProducts(){}
     public CountableProducts(int id , String name , Number amount , float price){

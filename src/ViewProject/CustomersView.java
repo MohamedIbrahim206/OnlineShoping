@@ -2,7 +2,7 @@ package ViewProject;
 
 import BAOProject.*;
 import DTOProject.Customers;
-import DTOProject.product;
+import DTOProject.Product;
 import java.util.Scanner;
 
 public class CustomersView {
@@ -48,7 +48,7 @@ public class CustomersView {
         Scanner in = new Scanner(System.in);
         CustomersView cv1 = new CustomersView();
         Customers c1 = new Customers();
-        product product = new product();
+        Product product = new Product();
         Sales s1 = new Sales();
         Cart myCart = new Cart();
 

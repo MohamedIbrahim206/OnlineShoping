@@ -2,14 +2,14 @@ package BAOProject;
 
 import DAOProject.*;
 import DTOProject.Admins;
-import DTOProject.product;
+import DTOProject.Product;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Warehouses implements WarehouseInter {
     private static int numOfProducts ;
 
-    private static HashMap<departmentsEnum , ArrayList<product>> map = new HashMap<>();
+    private static HashMap<departmentsEnum , ArrayList<Product>> map = new HashMap<>();
 
     static {
         for (departmentsEnum p : departmentsEnum.values())
@@ -23,7 +23,7 @@ public class Warehouses implements WarehouseInter {
     }
 
     public void viewProducts (departmentsEnum d){
-        for (DTOProject.product product : map.get(d))
+        for (Product product : map.get(d))
             System.out.println(product);
     }
 
@@ -43,7 +43,7 @@ public class Warehouses implements WarehouseInter {
             System.out.println((i++)+"- "+d);
     }
     public Sellable getProduct(int id , departmentsEnum d){
-        for (DTOProject.product product : map.get(d))
+        for (Product product : map.get(d))
             if (product.getId() == id)
                 return (Sellable) map.get(d).get(id);
         return null;
@@ -56,10 +56,10 @@ public class Warehouses implements WarehouseInter {
 
         numOfProducts++;
     }
-    public void deleteProduct(Admins a , product product , departmentsEnum d){
+    public void deleteProduct(Admins a , Product product , departmentsEnum d){
         map.get(d).remove(product);
     }
-    public void modifyProduct(Admins a , product product  , String name , Number amount , float price ){
+    public void modifyProduct(Admins a , Product product  , String name , Number amount , float price ){
         product.setName(name);
         product.setAmount(amount);
         product.setPrice(price);
