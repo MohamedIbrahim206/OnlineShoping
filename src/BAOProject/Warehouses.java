@@ -5,7 +5,6 @@ import DTOProject.Admins;
 import DTOProject.product;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Warehouses implements WarehouseInter {
     private static int numOfProducts ;
@@ -16,8 +15,7 @@ public class Warehouses implements WarehouseInter {
         for (departmentsEnum p : departmentsEnum.values())
             map.put(p , new ArrayList<>());
     }
-
-    Admins a1=new Admins();
+    //Admins a1=new Admins();
 
     @Override
     public int getSize(){
@@ -25,13 +23,11 @@ public class Warehouses implements WarehouseInter {
     }
 
     public void viewProducts (departmentsEnum d){
-
         for (DTOProject.product product : map.get(d))
             System.out.println(product);
     }
 
     public departmentsEnum getDepartment(int i){
-
         return switch (i) {
             case 1 -> departmentsEnum.Meats;
             case 2 -> departmentsEnum.Legumes;
@@ -53,14 +49,10 @@ public class Warehouses implements WarehouseInter {
         return null;
     }
     public void addProduct(Admins a , String name , Number amount , float price , departmentsEnum department){
-
-
         if(amount instanceof Integer)
             map.get(department).add(new CountableProducts(numOfProducts, name, amount, price));
-
         else
             map.get(department).add(new UncountableProducts(numOfProducts, name, amount, price));
-
 
         numOfProducts++;
     }

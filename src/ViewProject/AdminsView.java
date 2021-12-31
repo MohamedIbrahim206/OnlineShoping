@@ -79,29 +79,8 @@ public class AdminsView {
         switch (i) {
             case 1:
                 business.viewDepartments();
-                while (true) {
-                    System.out.println("What's department you want (Enter number)");
-                    int y = in.nextInt();
-                    // Exception handling here
-                    if (y == 1) {
-                        business.viewProducts(departmentsEnum.Meats);
-                        break;
-                    }
-                    else if (y == 2) {
-                        business.viewProducts(departmentsEnum.Legumes);
-                        break;
-                    }
-                    else if (y == 3) {
-                        business.viewProducts(departmentsEnum.DiartyProducts);
-                        break;
-                    }
-                    else if (y == 4) {
-                        business.viewProducts(departmentsEnum.Vegetables);
-                        break;
-                    }
-                    else
-                        System.out.println("incorrect input , please inter correct input ");
-                }
+                System.out.println("What's department you want (Enter number)");
+                business.viewProducts(business.getDepartment(in.nextInt()));
                 break;
 
             case 2:
@@ -130,18 +109,16 @@ public class AdminsView {
                 break;
             case 3:
                 business.viewDepartments();
-                System.out.println("please enter departments' name that you want delete from it ");
-                //get department
-                //print products
-                //get product id
-                //
-                //business.deleteProduct(a , business.getProduct(id,business.getDepartment(id)) ,business.getDepartment(id) );
+                System.out.println("please enter departments' number that you want delete from it ");
+                business.viewProducts(business.getDepartment(in.nextInt()));
+                System.out.println("please enter the number you want delete it ");
+                //business.deleteProduct(a , business.getProduct(in.nextInt(), business.getDepartment(in.nextInt())) ,business.getDepartment(in.nextInt()) );
                 break;
 
             case 4:
                 business.viewDepartments();
-                System.out.println("please enter departments' name that you want modify from it ");
-                printProducts();
+                System.out.println("please enter departments' number that you want modify from it ");
+                business.viewProducts(business.getDepartment(in.nextInt()));
                 System.out.println("please enter product's id that you want modify :");
                 product.setId(in.nextInt());
                 System.out.println("please enter the new name :");
@@ -153,11 +130,11 @@ public class AdminsView {
                 if (res.toLowerCase().equals("y")) {
                     System.out.println("please enter how many ?");
                     am = in.nextInt();
-                    //business.modifyProduct(a, product.getId(), product.getName(), am , product.getPrice());
+                    //business.modifyProduct(a, business.getProduct(product.getId(), business.getDepartment(product.getId())) , product.getName(), am , product.getPrice());
                 } else {
                     System.out.println("please enter how much ?");
                     amo = in.nextFloat();
-                    //business.modifyProduct(a , product.getId(), product.getName(), amo , product.getPrice());
+                    //business.modifyProduct(a, business.getProduct(product.getId(), business.getDepartment(product.getId())) , product.getName(), amo , product.getPrice());
                 }
                 break;
 

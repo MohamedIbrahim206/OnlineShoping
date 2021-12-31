@@ -42,8 +42,8 @@ public class CustomersView {
 
     public static void main(String args[]){
 
-        InterCart business = new BaoFactoryPro().getClassCart();
-        WarehouseInter business1 = new BaoFactoryPro().getClassBao();
+        InterCart obj = new BaoFactoryPro().getClassCart();
+        WarehouseInter business = new BaoFactoryPro().getClassBao();
 
         Scanner in = new Scanner(System.in);
         CustomersView cv1 = new CustomersView();
@@ -77,16 +77,15 @@ public class CustomersView {
         }
         c1 = new Customers(c1.getName(), c1.getPhone());
         while (!cv1.getOut){
-//            business1.viewProducts();
-//            System.out.println("What department do you want to buy from its ");
-//            printDepartments();
-//            doAction(in.nextInt());
-            //business1.viewProducts();
+            business.viewDepartments();
+            System.out.println("What department do you want to buy from it? (please enter number) ");
+            business.viewProducts(business.getDepartment(in.nextInt()));
             System.out.println("which product do you want to put into the cart ? (enter it's id) ");
             System.out.println("or if you want to exit enter any letter else");
+            int any = in.nextInt();
             do {
                 try {
-                    product.setId(in.nextInt());
+                    product.setId(any);
                     pass = false;
                 }catch (Exception e){
                     System.out.println("please enter valid id");
@@ -97,7 +96,7 @@ public class CustomersView {
             do {
                 try {
                     Number amo = in.nextInt();
-                    //business.addProduct(business1.getProduct(product.getId()), amo);
+                    obj.addProduct(business.getProduct(product.getId() , business.getDepartment(any)), amo);
                     pass = false;
                 }
                 catch (Exception e){
@@ -112,36 +111,18 @@ public class CustomersView {
             else
                 cv1.getOut = true;
 
-            System.out.println("your total is "+business.getTotal());
+            System.out.println("your total is "+obj.getTotal());
             System.out.println("are you sure to pay ? (Y/N)");
             // at body of if I think that not valid
             if(in.next().toLowerCase().equals("y")) {
                 s1.makePayment(c1, myCart);
                 System.out.println("Payment completed successfully , Good luck");
             }
-
             else{
-                business.removeCart();
+                obj.removeCart();
                 System.out.println("Not paid\n");
             }
         }
         cv1.getOut = false;
-    }
-
-    static void printDepartments(){
-        System.out.println("1- Meats");
-        System.out.println("2- Legumes");
-        System.out.println("3- Vegetables");
-        System.out.println("4- DiartyProducts");
-        System.out.println("5- to go back ");
-    }
-    static void doAction(int i){
-        CustomersView cv1 = new CustomersView();
-        product products = new product();
-        Scanner in = new Scanner(System.in);
-        switch (i){
-            case 1:
-
-        }
     }
 }
