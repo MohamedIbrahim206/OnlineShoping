@@ -131,7 +131,11 @@ public class AdminsView {
             case 3:
                 business.viewDepartments();
                 System.out.println("please enter departments' name that you want delete from it ");
-                //business.deleteProduct(a , in.next() , );
+                //get department
+                //print products
+                //get product id
+                //
+                //business.deleteProduct(a , business.getProduct(id,business.getDepartment(id)) ,business.getDepartment(id) );
                 break;
 
             case 4:
