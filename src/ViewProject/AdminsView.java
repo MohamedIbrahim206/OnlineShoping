@@ -4,10 +4,7 @@ import BAOProject.BaoFactoryPro;
 import BAOProject.WarehouseInter;
 import BAOProject.departmentsEnum;
 import DTOProject.Admins;
-import DTOProject.Departments;
-
-import java.util.ArrayList;
-import java.util.List;
+import DTOProject.product;
 import java.util.Scanner;
 
 public class AdminsView {
@@ -75,13 +72,13 @@ public class AdminsView {
 
     static void doAction(Admins a, int i) {
         AdminsView av1 = new AdminsView();
-        Departments product = new Departments();
+        product product = new product();
         Scanner in = new Scanner(System.in);
         switch (i) {
             case 1:
-                printDepartments();
+                business.viewDepartments();
                 while (true) {
-                    System.out.println("What's department you want ");
+                    System.out.println("What's department you want (Enter number)");
                     int y = in.nextInt();
                     // Exception handling here
                     if (y == 1) {
@@ -106,10 +103,9 @@ public class AdminsView {
                 break;
 
             case 2:
-                printDepartments();
-                System.out.println("please enter the department's number ");
+                business.viewDepartments();
+                System.out.println("please enter the department's number that you want add inside it ");
                 int any = in.nextInt();
-                PrintProducts();
                 System.out.println("please enter the product's name :");
                 product.setName(in.next());
                 System.out.println("please enter the product's price per amount :");
@@ -131,11 +127,15 @@ public class AdminsView {
                 }
                 break;
             case 3:
-                System.out.println("please enter departments' name :");
+                business.viewDepartments();
+                System.out.println("please enter departments' name that you want delete from it ");
                 //business.deleteProduct(a , in.next() , );
                 break;
 
             case 4:
+                business.viewDepartments();
+                System.out.println("please enter departments' name that you want modify from it ");
+                printProducts();
                 System.out.println("please enter product's id that you want modify :");
                 product.setId(in.nextInt());
                 System.out.println("please enter the new name :");
@@ -161,7 +161,7 @@ public class AdminsView {
         }
     }
 
-    static void PrintProducts() {
+    static void printProducts() {
         Admins a1 = new Admins();
         business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Tomato", 20, 4, departmentsEnum.Vegetables);
         business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Carrot", 10, 5, departmentsEnum.Vegetables);
@@ -185,11 +185,4 @@ public class AdminsView {
 
     }
 
-    static void printDepartments(){
-        int x = 1;
-        for (departmentsEnum s : departmentsEnum.values()) {
-            System.out.println(x + ":" + s);
-            x++;
-        }
-    }
 }

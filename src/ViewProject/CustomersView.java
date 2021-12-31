@@ -2,7 +2,7 @@ package ViewProject;
 
 import BAOProject.*;
 import DTOProject.Customers;
-import DTOProject.Departments;
+import DTOProject.product;
 import java.util.Scanner;
 
 public class CustomersView {
@@ -48,7 +48,7 @@ public class CustomersView {
         Scanner in = new Scanner(System.in);
         CustomersView cv1 = new CustomersView();
         Customers c1 = new Customers();
-        Departments product = new Departments();
+        product product = new product();
         Sales s1 = new Sales();
         Cart myCart = new Cart();
 
@@ -77,7 +77,7 @@ public class CustomersView {
         }
         c1 = new Customers(c1.getName(), c1.getPhone());
         while (!cv1.getOut){
-            //business1.viewProducts();
+//            business1.viewProducts();
 //            System.out.println("What department do you want to buy from its ");
 //            printDepartments();
 //            doAction(in.nextInt());
@@ -137,7 +137,7 @@ public class CustomersView {
     }
     static void doAction(int i){
         CustomersView cv1 = new CustomersView();
-        Departments products = new Departments();
+        product products = new product();
         Scanner in = new Scanner(System.in);
         switch (i){
             case 1:
