@@ -10,9 +10,7 @@ import java.util.Scanner;
 public class AdminsView {
     static boolean getOut = false;
 
-    // it's very wrong
     private static final String userName1, Password1;
-
     static {
         userName1 = "Mohammed";
         Password1 = "Mo1020h$";
@@ -147,29 +145,4 @@ public class AdminsView {
                 break;
         }
     }
-
-    static void printProducts() {
-        Admins a1 = new Admins();
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Tomato", 20, 4, departmentsEnum.Vegetables);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Carrot", 10, 5, departmentsEnum.Vegetables);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Beans", 25, 12, departmentsEnum.Vegetables);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Potatos", 15, 6, departmentsEnum.Vegetables);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Cucumber", 13, 5, departmentsEnum.Vegetables);
-
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Chicken", 5, 35, departmentsEnum.Meats);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Fish", 10, 30, departmentsEnum.Meats);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Meats", 25, 130, departmentsEnum.Meats);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Luncheon", 15, 40, departmentsEnum.Meats);
-
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Rice", 50, 9, departmentsEnum.Legumes);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Macaroni", 40, 6.5f, departmentsEnum.Legumes);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Sugar", 25, 8, departmentsEnum.Legumes);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Salt", 30, 2, departmentsEnum.Legumes);
-
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Milk", 8, 12, departmentsEnum.DiartyProducts);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Cheese", 10, 15, departmentsEnum.DiartyProducts);
-        business.addProduct(a1.getAccess("Mohammed", "Mo1020h$"), "Yogurt", 20, 2, departmentsEnum.DiartyProducts);
-
-    }
-
 }

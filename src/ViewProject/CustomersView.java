@@ -46,9 +46,9 @@ public class CustomersView {
         Scanner in = new Scanner(System.in);
         CustomersView cv1 = new CustomersView();
         Customers c1 = new Customers();
-        Product product = new Product();
+        //Product product = new Product();
         Sales s1 = new Sales();
-        Cart myCart = new Cart();
+        //Cart myCart = new Cart();
 
 
         while(true){
@@ -80,30 +80,12 @@ public class CustomersView {
             departmentsEnum d = business.getDepartment(in.nextInt());
             business.viewProducts(d);
             System.out.println("which product do you want to put into the cart ? (enter it's id) ");
-//            System.out.println("or if you want to exit enter any letter else");
             int any = in.nextInt();
-//            do {
-//                try {
-//                    product.setId(any);
-//                    pass = false;
-//                }catch (Exception e){
-//                    System.out.println("please enter valid id");
-//                    pass = true;
-//                }
-//            }while (pass);
-            System.out.println("the amount you want ?");
-//            do {
-//                try {
-                    Number amo = in.nextInt();
-                    obj.addProduct(business.getProduct(any , d), amo);
-                    pass = false;
-//                }
-//                catch (Exception e){
-//                    System.out.println("Sorry the amount not enough, please enter less amount");
-////                    pass = true;
-////                }
-////            }while (pass);
 
+            System.out.println("the amount you want ?");
+            Number amo = in.nextInt();
+            obj.addProduct(business.getProduct(any , d), amo);
+            pass = false;
             System.out.println("the product is added successfully");
             System.out.println("do you want to add more products ? (Y/N)");
             if (in.next().toLowerCase().equals("y"))
@@ -113,7 +95,7 @@ public class CustomersView {
 
             System.out.println("your total is "+obj.getTotal());
             System.out.println("are you sure to pay ? (Y/N)");
-            // at body of if I think that not valid
+
             if(in.next().toLowerCase().equals("y")) {
                 s1.makePayment(c1, (Cart) obj);
                 System.out.println("Payment completed successfully , Good luck");
